@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+/* QuoteLens design system — warm ivory / cobalt editorial palette */
+:root {
+  --bg: #F4F1EA;
+  --bg-tint: #EDE8DD;
+  --surface: #FBF9F4;
+  --surface-2: #F7F3EA;
+  --surface-hover: #F0EBDF;
+  --border: #E2DBC9;
+  --border-strong: #C9C0A8;
+  --ink: #131623;
+  --ink-2: #2A2E3D;
+  --text: #131623;
+  --text-2: #4A4E5C;
+  --text-3: #767A88;
+  --text-4: #A6A99B;
+
+  --cobalt: #2541E8;
+  --cobalt-deep: #1A2FB8;
+  --cobalt-soft: #DCE3FA;
+  --cobalt-soft-2: #EAF0FE;
+
+  /* mint = cobalt (positive/primary accent) */
+  --mint: #2541E8;
+  --mint-dim: #EAF0FE;
+  --mint-border: rgba(37, 65, 232, 0.2);
+
+  --positive: #1A2FB8;
+  --warn: #B57614;
+  --warn-soft: #F5E9CC;
+  --amber: #B57614;
+  --amber-dim: #F5E9CC;
+  --danger: #B22A2A;
+  --danger-soft: #F1D9D9;
+  --red: #B22A2A;
+  --blue: #0EA5E9;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+
+#root { height: 100vh; overflow: hidden; }
+
+.serif {
+  font-family: 'Instrument Serif', 'GT Sectra', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+.mono {
+  font-family: 'JetBrains Mono', 'DM Mono', ui-monospace, monospace;
+  font-feature-settings: 'zero';
+}
+
+/* ── Screen shell ── */
+.ql-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── Buttons ── */
+.ql-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.ql-btn-mint, .ql-btn-primary {
+  background: var(--cobalt);
+  color: #fff;
+}
+.ql-btn-mint:hover, .ql-btn-primary:hover { background: var(--cobalt-deep); }
+.ql-btn-ghost { background: transparent; color: var(--ink); border-color: var(--border-strong); }
+.ql-btn-ghost:hover { background: var(--surface); }
+.ql-btn-subtle { background: var(--surface); color: var(--ink); border-color: var(--border); }
+.ql-btn-subtle:hover { background: var(--surface-hover); }
+
+/* ── Inputs ── */
+.ql-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.15s ease;
+}
+.ql-input:focus { border-color: var(--cobalt); background: #fff; box-shadow: 0 0 0 3px var(--cobalt-soft-2); }
+.ql-input::placeholder { color: var(--text-4); }
+
+.ql-label {
+  display: block;
+  font-size: 11px;
+  color: var(--text-3);
+  margin-bottom: 6px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Cards ── */
+.ql-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* ── Badges ── */
+.ql-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+}
+.ql-badge-mint { background: var(--cobalt-soft); color: var(--cobalt-deep); border-color: rgba(37, 65, 232, 0.18); }
+.ql-badge-amber { background: var(--warn-soft); color: var(--warn); border-color: rgba(181, 118, 20, 0.2); }
+.ql-badge-red { background: var(--danger-soft); color: var(--danger); border-color: rgba(178, 42, 42, 0.18); }
+.ql-badge-blue { background: var(--cobalt-soft); color: var(--cobalt); border-color: rgba(37, 65, 232, 0.18); }
+.ql-badge-muted { background: var(--surface); color: var(--text-3); border-color: var(--border); }
+
+/* ── Sidebar ── */
+.ql-sidebar {
+  width: 230px;
+  background: var(--bg-tint);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px;
+  flex-shrink: 0;
+}
+.ql-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 4px 8px 22px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+.ql-logo-mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--cobalt);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ql-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border: 1px solid transparent;
+}
+.ql-nav-item:hover { background: var(--surface); color: var(--ink); }
+.ql-nav-item.active {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.ql-nav-item .dot { width: 14px; display: grid; place-items: center; color: var(--text-3); }
+.ql-nav-item.active .dot { color: var(--cobalt); }
+
+.stage-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── Toggle ── */
+.ql-toggle {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.ql-toggle.on { background: var(--cobalt); }
+.ql-toggle::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+.ql-toggle.on::after { left: 16px; }
+
+/* ── Scrollbar ── */
+.ql-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.ql-scroll::-webkit-scrollbar-track { background: transparent; }
+.ql-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.ql-scroll::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Backgrounds ── */
+.dotted-bg {
+  background-image: radial-gradient(circle, rgba(19,22,35,0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(19,22,35,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(19,22,35,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.halftone-bg {
+  background-image: radial-gradient(circle at 20% 50%, rgba(37, 65, 232, 0.08), transparent 50%);
+}
+
+/* ── Misc ── */
+.divider { height: 1px; background: var(--border); width: 100%; }
+
+.hover-reveal { opacity: 0; transition: opacity 0.15s ease; }
+.hover-parent:hover .hover-reveal { opacity: 1; }
+
+/* ── Tabs ── */
+.ql-tab {
+  padding: 8px 14px;
+  font-size: 13px;
+  color: var(--text-3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.12s ease;
+}
+.ql-tab:hover { color: var(--ink); }
+.ql-tab.active { color: var(--ink); border-bottom-color: var(--cobalt); }
+
+/* ── Option cards (onboarding) ── */
+.option-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.option-card:hover { border-color: var(--border-strong); background: #fff; }
+.option-card.selected {
+  border-color: var(--cobalt);
+  background: var(--cobalt-soft-2);
+  box-shadow: 0 0 0 3px rgba(37, 65, 232, 0.08);
+}
+
+/* ── Drop zone ── */
+.dropzone {
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  color: var(--text-3);
+  font-size: 13px;
+  background: var(--surface-2);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.dropzone:hover { border-color: var(--cobalt); color: var(--ink); background: var(--cobalt-soft-2); }
+
+/* ── Typography helpers ── */
+.step-pill {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+.hero-number {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+/* ── Placeholder pattern ── */
+.placeholder-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(19,22,35,0.03),
+    rgba(19,22,35,0.03) 10px,
+    rgba(19,22,35,0.05) 10px,
+    rgba(19,22,35,0.05) 20px
+  );
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
